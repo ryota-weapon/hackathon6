@@ -71,5 +71,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  router: {
+    base: '/hackathon6/'
+  },
+
+  generate: {
+    dir: './docs'
+  },
+
 }
