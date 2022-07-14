@@ -2,7 +2,8 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   env: {
-    baseUrl: process.env.BASE_URL || "http://localhost:54680",
+    localBaseUrl: process.env.LOCAL_BASE_URL || "http://localhost:54680",
+    baseUrl: process.env.BASE_URL || "https://damp-forest-88368.herokuapp.com/",
   },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode

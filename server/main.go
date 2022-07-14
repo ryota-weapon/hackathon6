@@ -1,4 +1,4 @@
-package server
+package main
 
 import (
 	"net/http"
@@ -17,7 +17,7 @@ func main() {
 
 	e.GET("/", handler)
 
-	Addr := os.Getenv("PORT")
+	Addr := ":" + os.Getenv("PORT")
 	e.Logger.Fatal(e.Start(Addr))
 }
 

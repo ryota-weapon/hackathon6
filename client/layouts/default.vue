@@ -122,7 +122,7 @@ export default {
     <v-app-bar>
       <v-app-bar-title>Hackathon6</v-app-bar-title>
     </v-app-bar>
-  
+    
     <Nuxt />
   </v-container>
 </template>
