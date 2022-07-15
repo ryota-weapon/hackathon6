@@ -85,11 +85,24 @@ export default {
 
 <template>
   <v-container>
-    <h1>hello world</h1>
-    <v-btn @click="callAPI">
-      call api to the api server
-    </v-btn>
-    <p>response: {{a}}</p>
+    <v-row>
+      <v-col>
+        <v-card to="/matches">
+          <h2>試合をさがす</h2>
+          <br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card to="/make">
+          <h2>試合をつくる</h2>
+          <br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

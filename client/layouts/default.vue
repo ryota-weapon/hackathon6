@@ -118,11 +118,24 @@ export default {
 </script> -->
 
 <template>
-  <v-container>
-    <v-app-bar>
-      <v-app-bar-title>Hackathon6</v-app-bar-title>
-    </v-app-bar>
-    
-    <Nuxt />
-  </v-container>
+  <v-app>
+    <Header></Header>
+    <!-- <v-container height="800px"> -->
+    <v-main>
+      <Nuxt />
+    </v-main>
+    <Footer></Footer>
+  </v-app>
 </template>
+
+<script>
+  import Footer from "../components/Footer.vue";
+  import Header from "../components/Header.vue";
+
+  export default {
+    components: {
+      Header,
+      Footer,
+    }
+  }
+</script>
