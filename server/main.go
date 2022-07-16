@@ -19,8 +19,11 @@ func main() {
 
 	e.GET("/", handler)
 	e.POST("/", controller.SignUpUser)
+	e.GET("/user/:id", controller.FindUser)
+
 	e.POST("/makeMatch", controller.MakeMatch)
 	e.GET("/matches", controller.FetchAllMatch)
+	e.GET("/match/:id", controller.FindMatch)
 
 	// Addr := ":" + os.Getenv("PORT")
 	Addr := ":1323"

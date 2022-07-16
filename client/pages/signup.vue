@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-btn @click="signUpWithGoogle">グーグルアカウントでログイン</v-btn>
+        <v-btn @click="signUpWithGoogle">グーグルアカウントで登録</v-btn>
     </v-container>
 </template>
 

@@ -3,6 +3,7 @@ package controller
 import (
 	"fmt"
 	"net/http"
+	"server/infrastructure"
 	infra "server/infrastructure"
 	model "server/model"
 
@@ -13,13 +14,25 @@ func SignUpUser(c echo.Context) error {
 	user := model.User{}
 	c.Bind(&user)
 
-	fmt.Println(user.Auth_id)
-	fmt.Println(user.Name)
-
 	err := infra.RegisterUser(user)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	return c.JSON(http.StatusOK, "created")
+}
+
+func FindUser(c echo.Context) error {
+	user_id := c.Param("id")
+	fmt.Println(user_id)
+
+	client, ctx := infrastructure.ConnectToFirestore()
+
+	user, err := client.Collection("users").Doc(user_id).Get(ctx)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+
+	return c.JSON(http.StatusOK, user.Data())
 }

@@ -1,6 +1,9 @@
 <template>
     <v-footer>
-        <v-icon dark v-for="share in shareItems">icon: {{share.icon}} </v-icon>
+        <v-row justify="center">
+            <!-- <v-col cols="4"></v-col> -->
+            <v-col class="px-0" cols="1" align="center" dark v-for="share in shareItems"><v-icon>icon: {{share.icon}} </v-icon></v-col>
+        </v-row>
     </v-footer>
 </template>
 
@@ -10,7 +13,7 @@
             shareItems: [
                 {icon: "mdi-twitter", link: ""},
                 {icon: "mdi-facebook", link: ""},
-                {icon: "", link: ""},
+                {icon: "mdi-instagram", link: ""},
             ]
         })
     }
