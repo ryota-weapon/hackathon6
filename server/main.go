@@ -25,6 +25,9 @@ func main() {
 	e.GET("/matches", controller.FetchAllMatch)
 	e.GET("/match/:id", controller.FindMatch)
 
+	e.POST("/evaluate", controller.EvaluatePlayer)
+	e.POST("/evaluate-all", controller.AggregatedEvaluations)
+
 	// Addr := ":" + os.Getenv("PORT")
 	Addr := ":1323"
 	e.Logger.Fatal(e.Start(Addr))

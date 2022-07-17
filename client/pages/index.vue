@@ -38,14 +38,15 @@
 <style scoped>
 h1{
     font-size: 100px;
+    margin-bottom: 40px;
 }
     .landing{
         height: 100%;
         margin: 0px;
         padding-top: 200px;
         
-        opacity: 0.6;
-        background-size: cover;
+        opacity: .7;
+        /* background-size: cover; */
         /* background-image: url("https://img.my-best.com/content_section/choice_component/sub_contents/bc422a80445258218882f28f720dca51.jpg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max&s=ea9ee8368534b78c72904e677c7332d8"); */
     }
 </style>

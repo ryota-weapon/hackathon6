@@ -63,6 +63,8 @@ func SaveMatch(match model.Match) error {
 		"team1_id":   match.Team1_id,
 		"team2_id":   match.Team2_id,
 		"start_time": match.Start_time,
+		"players1":   match.Players1,
+		"players2":   match.Players2,
 	})
 	if err != nil {
 		log.Fatalf("Failed adding alovelace: %v", err)

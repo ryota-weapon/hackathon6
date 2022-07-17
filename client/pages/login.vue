@@ -1,5 +1,7 @@
 <template>
     <v-container>
+        <h1>ログイン</h1>
+        <p>このアプリは、グーグルアカウントでのログインのみサポートしています。</p>
         <v-btn @click="logInWithGoogle">グーグルアカウントでログイン</v-btn>
     </v-container>
 </template>

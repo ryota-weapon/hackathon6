@@ -81,7 +81,8 @@ export default {
     extendRoutes(routes, resolve) {
       routes.push({
         name: "match",
-        path: "/match/:id",
+        path: "/match/:id?",
+
         component: resolve(__dirname, "pages/match/index.vue"),
       })
     }

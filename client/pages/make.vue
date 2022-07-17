@@ -29,15 +29,15 @@
                                 <v-row class="mb-2">
                                     <v-col>
                                         <v-card-title>
-                                            {{player.name}}
+                                            {{player}}
                                         </v-card-title>
                                     </v-col>
 
                                     <v-spacer></v-spacer>
                                     <v-col cols="2" class="pt-6">
-                                        <v-card-action justify="center"><v-btn class="px-0">
+                                        <v-card-actions justify="center"><v-btn @click="deletePlayer(1, player)" class="px-0">
                                             <v-icon >mdi-delete</v-icon>
-                                        </v-btn></v-card-action>
+                                        </v-btn></v-card-actions>
                                     </v-col>
                                 </v-row>
                             </v-card>
@@ -53,15 +53,15 @@
                             <v-row class="mb-2">
                                 <v-col>
                                     <v-card-title>
-                                        {{player.name}}
+                                        {{player}}
                                     </v-card-title>
                                 </v-col>
 
                                 <v-spacer></v-spacer>
                                 <v-col cols="2" class="pt-6">
-                                    <v-card-action justify="center"><v-btn class="px-0">
+                                    <v-card-actions justify="center"><v-btn @click="deletePlayer(2, player)" class="px-0">
                                         <v-icon >mdi-delete</v-icon>
-                                    </v-btn></v-card-action>
+                                    </v-btn></v-card-actions>
                                 </v-col>
                             </v-row>
                         </v-card>
@@ -75,7 +75,6 @@
 </template>
 
 <script>
-    import { throwStatement } from "@babel/types";
 import axios from "axios";
 
     const date = new Date();
@@ -94,32 +93,8 @@ import axios from "axios";
             team1: "",
             team2: "",
             startTime: today,
-            players1: [
-                {id: 1,  name: "酒井 宏樹"},
-                {id: 2,  name: "本田 圭佑"},
-                {id: 3,  name: "佐々木 朗希"},
-                {id: 4,  name: "遠藤 航"},
-                {id: 5,  name: "大迫 雄也"},
-                {id: 6,  name: "向井 修"},
-                {id: 7,  name: "林 圭佑"},
-                {id: 8,  name: "大谷 二郎"},
-                {id: 9,  name: "磯塚 体制"},
-                {id: 10, name:  "井伊 直弼"},
-                {id: 11, name:  "伊能 忠敬"},
-            ],
-            players2: [
-                {id: 1,  name: "酒井 宏樹"},
-                {id: 2,  name: "本田 圭佑"},
-                {id: 3,  name: "佐々木 朗希"},
-                {id: 4,  name: "遠藤 航"},
-                {id: 5,  name: "大迫 雄也"},
-                {id: 6,  name: "向井 修"},
-                {id: 7,  name: "林 圭佑"},
-                {id: 8,  name: "大谷 二郎"},
-                {id: 9,  name: "磯塚 体制"},
-                {id: 10, name:  "井伊 直弼"},
-                {id: 11, name:  "伊藤　龍人"},
-            ],
+            players1: ["1","2","3","4","5","6","7","8","9","10","11"],
+            players2: ["1","2","3","4","5","6","7","8","9","10","11"],
             playerToAdd: "",
             players: [
                 {id: 1,  name: "酒井 宏樹"},
@@ -146,14 +121,34 @@ import axios from "axios";
             makeMatch: function() {
                 const postData = {
                     startTime: this.startTime,
-                    team1: parseInt(this.team1),
-                    team2: parseInt(this.team2),
+                    team1: this.team1,
+                    team2: this.team2,
+                    players1: this.players1,
+                    players2: this.players2,
                 }
                 console.log(postData);
                 axios.post("http://localhost:1323/makeMatch", postData).then(res => {
                     console.log(res);
                 });
             },
+            deletePlayer: function(playersToDelete, id) {
+                if (playersToDelete === 1){
+                    this.players1 = this.players1.filter(playerId => playerId!==id)
+                }else{
+                    this.players2 = this.players2.filter(playerId => playerId!==id)
+                }
+            }
+        },
+        computed: {
+            //ものすごく計算量がある
+            playerNameOfId: function( id ) {
+                for (let i=0; i<this.players.length; i++){
+                    if (this.players[i].id == id) {
+                        return player.name;
+                    }
+                }
+                return "not found";
+            }
         }
     }
 </script>
