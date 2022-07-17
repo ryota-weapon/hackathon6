@@ -85,15 +85,17 @@ export default {
 
 <template>
   <v-container>
-    <v-row justify="center" class="mt-8">
+    <v-row justify="center" style="margin-top: 100px">
       <v-col>
-        <v-card align="center" justify="center" height="400px" to="/matches">
-          <h2 class="pt-16">試合をさがす</h2>
+        <v-card elevation="6" align="center" justify="center" height="400px" to="/matches">
+          <h2 style="padding-top: 100px">試合をさがす</h2>
+          <v-icon style="font-size: 80px; margin-top: 20px"> mdi-clipboard-text-search </v-icon>
         </v-card>
       </v-col>
       <v-col>
-        <v-card align="center" height="400px" to="/make">
-          <h2 class="pt-16">試合をつくる</h2>
+        <v-card elevation="6" align="center" height="400px" to="/make">
+          <h2 style="padding-top: 100px">試合をつくる</h2>
+          <v-icon style="font-size: 80px; margin-top: 20px"> mdi-text-box-edit </v-icon>
         </v-card>
       </v-col>
     </v-row>

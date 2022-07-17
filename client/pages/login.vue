@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-btn @click="signUpWithGoogle">グーグルアカウントでログイン</v-btn>
+        <v-btn @click="logInWithGoogle">グーグルアカウントでログイン</v-btn>
     </v-container>
 </template>
 
@@ -13,22 +13,12 @@ import { env } from 'process';
 
     export default {
         methods: {
-            signUpWithGoogle: function() {
+            logInWithGoogle: function(){
                 const provider = new GoogleAuthProvider();
-                signInWithPopup(auth, provider).then(result => {
-                    console.log(result);
-                    const info = result.user;
-                    const postData = {
-                        "id": info.uid,
-                        "name": info.displayName,
-                        "icon": info.photoURL,
-                        "email": info.email,
-                    };
-                    axios.post("http://localhost:1323/", postData).then(
-                        result => console.log(result)
-                    )
-                });
+                signInWithPopup(auth, provider).then( result => {
+                    this.$store.commit("auth/setAuthenticated", result.user.uid);
+                })
             }
-        }
+        },
     }
 </script>

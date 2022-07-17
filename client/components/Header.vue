@@ -1,13 +1,13 @@
 <template>
     <v-app-bar app>
-        <v-app-bar-title><v-btn to="/">Hackathon6</v-btn></v-app-bar-title>
+        <v-app-bar-title><v-btn width="" text to="/" class="text-h6">みんなの選手評価</v-btn></v-app-bar-title>
         <v-spacer></v-spacer>
-        <v-btn to="/help">ヘルプ</v-btn>
+        <v-btn text to="/help">ヘルプ</v-btn>
         
-        <v-btn  to="/login">ログイン</v-btn>
+        <v-btn text  to="/login">ログイン</v-btn>
         
-        <v-btn v-if="!isAuthenticated" to="/login">ログイン</v-btn>
-        <v-btn v-else to="/mypage">マイページ</v-btn>
+        <v-btn text v-if="!isAuthenticated" to="/login">ログイン</v-btn>
+        <v-btn text v-else to="/mypage">マイページ</v-btn>
     </v-app-bar>
 </template>
 
